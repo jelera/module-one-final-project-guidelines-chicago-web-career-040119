@@ -10,34 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190415210747) do
-
-  create_table "arrivals", force: :cascade do |t|
-    t.datetime "arrival_time"
-    t.integer  "destination_id"
-    t.integer  "flight_id"
-  end
-
-  create_table "departures", force: :cascade do |t|
-    t.datetime "departure_time"
-    t.integer  "destination_id"
-    t.integer  "flight_id"
-  end
+ActiveRecord::Schema.define(version: 2019_04_15_224414) do
 
   create_table "destinations", force: :cascade do |t|
     t.string "name"
     t.string "country"
   end
 
+  create_table "flight_events", force: :cascade do |t|
+    t.datetime "time"
+    t.boolean "is_departure"
+    t.integer "destination_id"
+  end
+
   create_table "flights", force: :cascade do |t|
-    t.string   "flight_number"
-    t.string   "airline"
-    t.datetime "duration"
-    t.float    "price"
+    t.string "flight_number"
+    t.string "airline"
+    t.integer "arrival_id"
+    t.integer "departure_id"
+    t.float "price"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string  "content"
+    t.text "content"
     t.integer "rating"
     t.integer "destination_id"
     t.integer "user_id"

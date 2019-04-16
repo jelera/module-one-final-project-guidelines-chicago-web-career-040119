@@ -1,4 +1,4 @@
-class UserFlight < ActiveRecord::Base
+class UsersFlight < ActiveRecord::Base
   belongs_to :user
   belongs_to :flight
 
