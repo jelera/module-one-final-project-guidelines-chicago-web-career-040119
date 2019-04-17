@@ -59,4 +59,17 @@ module Banner
 
     BANNER
   end
+
+  def book_flight_confirmation_banner
+    puts <<-MSG
+
+
+Here are the details for your upcoming flight
+
+Departure city: #{@choice[:departure_city]}
+Arrival city: #{@choice[:arrival_city]}
+
+
+    MSG
+  end
 end

@@ -42,17 +42,7 @@ class MainScreen
   # => CONFIRMATION MESSAGES
   #---------------------------------------------------#
   def book_flight_confirmation
-    puts <<-MSG
-
-
-Here are the details for your upcoming flight
-
-Departure city: #{@choice[:departure_city]}
-Arrival city: #{@choice[:arrival_city]}
-
-
-    MSG
-
+    book_flight_confirmation_banner
   end
 
 
