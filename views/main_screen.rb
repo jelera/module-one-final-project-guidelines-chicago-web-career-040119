@@ -86,6 +86,17 @@ class MainScreen
           # q.validate
           end
         end
+      when 'destinations'
+        @choice = @prompt.select("These are your options") do |menu|
+          menu.default 1
+
+          menu.choice 'Read information about a destination', 1
+          menu.choice 'View Destinations by City', 2
+          menu.choice 'List all destinations', 3
+          menu.choice 'Read reviews about a destination', 4
+        end
+      when 'my_profile'
+        ''
     end
   end
 
