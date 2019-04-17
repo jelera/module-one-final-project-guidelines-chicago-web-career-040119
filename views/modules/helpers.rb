@@ -15,4 +15,9 @@ module Helper
       options_h.keys.include?(input) 
     end
   end
+
+  def go_back_to_main_screen
+    $main_screen.welcome_screen
+    $main_screen.main_menu
+  end
 end
