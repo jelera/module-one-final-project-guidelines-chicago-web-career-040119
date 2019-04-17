@@ -8,8 +8,8 @@ class MyProfile
     @prompt = TTY::Prompt.new
     spacer_banner
     my_profile_banner
+    nested_options
     tasks
-
   end
 
   def options
@@ -25,7 +25,8 @@ class MyProfile
     end
   end
 
-  def tasks
+
+  def nested_options
     case options
     when 1
       @prompt.select("My Info") do |menu|
@@ -41,26 +42,59 @@ class MyProfile
 
     when 2
       @prompt.select("My Flights") do |menu|
-        menu.default 1
+        menu.default 6
 
-        menu.choice 'All Flights', 1
-        menu.choice 'Past Flights', 2
-        menu.choice 'Upcoming Flights', 3
-        menu.choice 'Update My Flights', 4
-        menu.choice 'Go back to My Profile menu', 5
+        menu.choice 'All Flights', 6
+        menu.choice 'Past Flights', 7
+        menu.choice 'Upcoming Flights', 8
+        menu.choice 'Update My Flights', 9
+        menu.choice 'Go back to My Profile menu', 10
       end
     when 3
       @prompt.select("My Reviews") do |menu|
-        menu.default 1
+        menu.default 11
 
-        menu.choice 'Write a New Review', 1
-        menu.choice 'Read My Reviews', 2
-        menu.choice 'Update an Existing Review', 3
-        menu.choice 'Go back to My Profile menu', 4
+        menu.choice 'Write a New Review', 11
+        menu.choice 'Read My Reviews', 12
+        menu.choice 'Update an Existing Review', 13
+        menu.choice 'Go back to My Profile menu', 14
       end
     end
-
   end
+
+def tasks
+  case nested_options
+    when 1
+
+    when 2
+
+    when 3
+
+    when 4
+
+    when 5
+
+    when 6
+
+    when 7
+
+    when 8
+
+    when 9
+
+    when 10
+
+    when 11
+
+    when 12
+
+    when 13
+
+    when 14
+    end
+
+
+end
 
   # def main
   # end
