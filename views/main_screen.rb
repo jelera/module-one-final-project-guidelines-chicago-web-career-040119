@@ -24,7 +24,6 @@ class MainScreen
     # @password = @prompt.mask("Enter your password")
   end
 
-
   def welcome_screen
     system 'clear'
     company_banner
@@ -89,7 +88,7 @@ class MainScreen
   end
 
   #---------------------------------------------------#
-  # => PROCESS DATA
+  # => DATA PROCESSING
   #---------------------------------------------------#
 
   def create_user
@@ -110,7 +109,6 @@ class MainScreen
       key(:first_name).ask('First Name')
 
       key(:last_name).ask('Last Name')
-
 
       key(:address) do
         key(:street).ask('Street?', required: true)
