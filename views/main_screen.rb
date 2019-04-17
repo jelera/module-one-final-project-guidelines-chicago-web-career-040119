@@ -37,6 +37,13 @@ class MainScreen
     book_flight_confirmation
   end
 
+  def destinations_screen
+    destinations_menu
+  end
+
+  def my_profile_screen
+
+  end
   #---------------------------------------------------#
   # => CONFIRMATION MESSAGES
   #---------------------------------------------------#
