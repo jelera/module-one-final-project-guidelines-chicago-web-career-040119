@@ -13,19 +13,34 @@ require "faker"
   user_id: (1..30).to_a.sample,
   )}
 
-  80.times { FlightEvent.create(
-    time: Faker::Time.between(DateTime.now - 30, DateTime.now),
-    is_departure: Faker::Boolean.boolean(0.5),
-    destination_id: (1..20).to_a.sample
-  )}
 
-40.times { Flight.create(
-  flight_number: Faker::Number.unique.number(3),
-  airline: "#{Faker::TvShows::GameOfThrones.dragon} Airlines",
-  arrival_id: (1..20).to_a.sample,
-  departure_id: (1..20).to_a.sample,
-  price: Faker::Number.decimal(3, 2)
-  )}
+
+40.times {
+
+  flight = Flight.create(
+    flight_number: Faker::Number.unique.number(3),
+    airline: "#{Faker::TvShows::GameOfThrones.dragon} Airlines",
+    price: Faker::Number.decimal(3, 2)
+  )
+
+  departure_dest = (1..20).to_a.sample
+  arrival_dest = ((1..20).to_a - [departure_dest]).sample
+
+  FlightEvent.create(
+    time: Faker::Time.between(DateTime.now - 30, DateTime.now),
+    is_departure: true,
+    destination_id: departure_dest,
+    flight_id: flight.id
+  )
+
+  FlightEvent.create(
+    time: Faker::Time.between(DateTime.now, DateTime.now + 30),
+    is_departure: false,
+    destination_id: arrival_dest,
+    flight_id: flight.id
+  )
+  puts "Created flight from #{Destination.find(departure_dest).name} to #{Destination.find(arrival_dest).name}"
+}
 
 
 30.times { UsersFlight.create(

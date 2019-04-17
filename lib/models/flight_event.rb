@@ -1,22 +1,13 @@
 class FlightEvent < ActiveRecord::Base
-  
+
   belongs_to :destination
+  belongs_to :flight
 
   def arrival?
-    !departure
+    !is_departure
   end
 
   def departure?
-    departure
+    is_departure
   end
-
-
-  def flight
-    if departure
-      Flight.find_by(departure_id: id)
-    else
-      Flight.find_by(arrival_id: id)
-    end
-  end
-
 end

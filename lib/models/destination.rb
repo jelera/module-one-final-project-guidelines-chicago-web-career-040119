@@ -5,16 +5,14 @@ class Destination < ActiveRecord::Base
   has_many :reviews
   has_many :users, through: :reviews
   has_many :flight_events
-
-  def flights
-    flight_events.map(:flight)
-  end
+  has_many :flights, through: :flight_events
 
   def arrivals
-    flight_events.select { |event| event.arrival? }.map(&:flight)
+    flights.select { |flight| flight.arrival.destination_id == id }
+    
   end
 
   def departures
-    flight_events.select { |event| event.departure? }.map(&:flight)
+    flights.select { |flight| flight.departure.destination_id == id }
   end
 end

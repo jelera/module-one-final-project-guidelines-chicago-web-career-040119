@@ -57,3 +57,9 @@ Projects need to be approved prior to launching into them, so take some time to 
 # in config/environment.rb add this line:
 ActiveRecord::Base.logger = nil
 ```
+
+Functionality that we want to preserve:
+Destination#flight_events
+Destination#flights
+Destination#arrivals
+Destination#departures

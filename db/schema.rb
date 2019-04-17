@@ -20,14 +20,13 @@ ActiveRecord::Schema.define(version: 2019_04_15_224414) do
   create_table "flight_events", force: :cascade do |t|
     t.datetime "time"
     t.boolean "is_departure"
+    t.integer "flight_id"
     t.integer "destination_id"
   end
 
   create_table "flights", force: :cascade do |t|
     t.string "flight_number"
     t.string "airline"
-    t.integer "arrival_id"
-    t.integer "departure_id"
     t.float "price"
   end
 
