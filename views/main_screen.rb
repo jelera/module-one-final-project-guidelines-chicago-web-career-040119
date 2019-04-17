@@ -51,7 +51,14 @@ class MainScreen
     book_flight_confirmation_banner
   end
 
+  def destination_confirmation
+    
+  end
 
+
+  def my_profile_confirmation
+    
+  end
   #---------------------------------------------------#
   # => MENUS
   #---------------------------------------------------#
