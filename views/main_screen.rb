@@ -105,6 +105,10 @@ class MainScreen
     case @choice
     when 1
       book_flight_screen
+    when 2
+      destinations_screen
+    when 3
+      my_profile_screen
     end
   end
 
@@ -112,6 +116,13 @@ class MainScreen
     menu_choice("book_flight")
   end
 
+  def destinations_menu
+    menu_choice("destinations")
+  end
+
+  def my_profile_menu
+    menu_choice("my_profile")
+  end
   #---------------------------------------------------#
   # => DATA PROCESSING
   #---------------------------------------------------#
