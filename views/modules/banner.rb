@@ -60,4 +60,15 @@ module Banner
     BANNER
   end
 
+  def my_profile_banner
+    puts <<-BANNER
++---------------------------------+
+|                                 |
+|          MY PROFILE             |
+|                                 |
+-----------------------------------
+
+    BANNER
+
+end
 end

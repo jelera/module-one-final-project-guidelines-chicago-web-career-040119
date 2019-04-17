@@ -41,7 +41,7 @@ class MainScreen
     when 2
       # destinations_screen
     when 3
-      # my_profile_screen
+       my_profile = MyProfile.new
     end
   end
 
