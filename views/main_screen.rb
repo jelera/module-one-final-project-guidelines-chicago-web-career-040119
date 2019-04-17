@@ -73,8 +73,17 @@ class MainScreen
           # q.validate
           end
         end
+
+      # when 'Destinations'
+      # end
+
+    when 'my_profile'
+      @choice = @prompt.collect do
+
     end
-  end
+
+    end
+
 
   def main_menu
     menu_choice("main")
@@ -86,6 +95,10 @@ class MainScreen
 
   def book_flight_menu
     menu_choice("book_flight")
+  end
+
+  def my_profile_menu
+    menu_choice("my_profile")
   end
 
   #---------------------------------------------------#
