@@ -71,4 +71,14 @@ module Banner
     BANNER
 
 end
+  def destinations_banner
+    puts <<-BANNER
++-------------------------------+
+|                               |
+|          DESTINATIONS         |
+|                               |
+---------------------------------
+
+    BANNER
+  end
 end
