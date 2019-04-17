@@ -24,7 +24,6 @@ class MainScreen
     # @password = @prompt.mask("Enter your password")
   end
 
-
   def welcome_screen
     system 'clear'
     company_banner
@@ -38,6 +37,13 @@ class MainScreen
     book_flight_confirmation
   end
 
+  def destinations_screen
+    destinations_menu
+  end
+
+  def my_profile_screen
+
+  end
   #---------------------------------------------------#
   # => CONFIRMATION MESSAGES
   #---------------------------------------------------#
@@ -45,7 +51,14 @@ class MainScreen
     book_flight_confirmation_banner
   end
 
+  def destination_confirmation
 
+  end
+
+
+  def my_profile_confirmation
+
+  end
   #---------------------------------------------------#
   # => MENUS
   #---------------------------------------------------#
@@ -80,6 +93,19 @@ class MainScreen
     when 'my_profile'
       @choice = @prompt.collect do
 
+
+      when 'destinations'
+        @choice = @prompt.select("These are your options") do |menu|
+          menu.default 1
+
+          menu.choice 'Read information about a destination', 1
+          menu.choice 'View Destinations by City', 2
+          menu.choice 'List all destinations', 3
+          menu.choice 'Read reviews about a destination', 4
+        end
+      when 'my_profile'
+        ''
+
     end
 
     end
@@ -90,6 +116,10 @@ class MainScreen
     case @choice
     when 1
       book_flight_screen
+    when 2
+      destinations_screen
+    when 3
+      my_profile_screen
     end
   end
 
@@ -97,12 +127,15 @@ class MainScreen
     menu_choice("book_flight")
   end
 
+  def destinations_menu
+    menu_choice("destinations")
+  end
+
   def my_profile_menu
     menu_choice("my_profile")
   end
-
   #---------------------------------------------------#
-  # => PROCESS DATA
+  # => DATA PROCESSING
   #---------------------------------------------------#
 
   def create_user
@@ -123,7 +156,6 @@ class MainScreen
       key(:first_name).ask('First Name')
 
       key(:last_name).ask('Last Name')
-
 
       key(:address) do
         key(:street).ask('Street?', required: true)
