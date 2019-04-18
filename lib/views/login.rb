@@ -18,9 +18,9 @@ class LoginView
       create_user
     else
       @username = @prompt.ask('What is your username?', default: ENV['USER'])
+      validate_login
     end
 
-    validate_login
     # @password = @prompt.mask("Enter your password")
   end
 
@@ -28,16 +28,15 @@ class LoginView
     user = User.where('email=?', @username)
     if !user || user.count == 0
       puts "Sorry, your email is not associated with an existing"
-      # answer = @prompt.yes?("Would you like to create one?")
-      # if answer
-      #   create_user
-      # else
-      #   exit
-      # end
-      exit
-
+      answer = @prompt.yes?("Would you like to create one?")
+      if answer
+        create_user
+      else
+        exit
+      end
     else
-      $user = user
+
+      $user = user[0]
     end
   end
 
