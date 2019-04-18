@@ -1,5 +1,5 @@
 user_number = 50
-flight_number = 20
+flight_number = 100
 destination_number = 80
 review_number = 50
 
@@ -90,8 +90,21 @@ flight_number.times {
     arrival_city_id: arrival_city_id,
     arrival_time: Chronic.parse("#{a_hour}:#{a_minute}") + ((4..9).to_a.sample).hours
   )
+  puts "Created: Flight number: #{flight.flight_number}"
 
 }
+
+puts ""
+puts ""
+puts ""
+puts "TOTAL SEEDS"
+puts "==========="
+puts ""
+puts "#{user_number} Users"
+puts "#{destination_number} Destinations"
+puts "#{flight_number} Flights"
+puts "#{review_number} Reviews"
+puts "22 Cities"
 
   # arrival_dest = (1..20).to_a.sample
   # arrival_dest = ((1..20).to_a - [arrival_dest]).sample
