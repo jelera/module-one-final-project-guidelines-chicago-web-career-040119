@@ -32,21 +32,30 @@ end
 def my_profile_tasks
   case my_profile_main_menu
       when 1
-        # User.find_by($user)#used global variable, make sure it works
-        # profile.first_name
-        # profile.last_name
-        # profile.age
-        # profile.address
-        # profile.email
-        # profile.password
+        # puts "#{$user}"
+        profile = $user
+        puts profile.first_name
+        puts profile.last_name
+        puts profile.age
+        puts profile.address
+        puts profile.email
+        puts profile.password
       when 2
         #Change profile
       when 3
-        # Review.where($user)
+
+       $user.reviews.each do |r|
+         puts "========================="
+           puts "Rating: #{r.rating}"
+           puts ""
+           puts r.body
+           puts "========================"
+           puts ""
+         end
       when 4
-        #Write new review
+        # @prompt.ask("Enter the destination you'd like to review:")
       when 5
-        # UserFlights.where($user)
+        
       when 6
         # puts " Change flight"
       when 7
