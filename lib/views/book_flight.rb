@@ -1,6 +1,6 @@
 require_relative 'modules/banner'
 require_relative 'modules/helpers'
-class BookFlight
+class BookFlightView
   attr_reader :choice
   include Banner
 

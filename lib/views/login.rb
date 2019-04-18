@@ -13,15 +13,31 @@ class LoginView
   def main_screen
     system 'clear'
     welcome_children_banner
-    is_new_user? ? create_user : @username = @prompt.ask('What is your username?', default: ENV['USER'])
+
+    if is_new_user?
+      create_user
+    else
+      @username = @prompt.ask('What is your username?', default: ENV['USER'])
+    end
+
+    validate_login
     # @password = @prompt.mask("Enter your password")
   end
 
   def validate_login
     user = User.where('email=?', @username)
-    if user
+    if !user || user.count == 0
+      puts "Sorry, your email is not associated with an existing"
+      # answer = @prompt.yes?("Would you like to create one?")
+      # if answer
+      #   create_user
+      # else
+      #   exit
+      # end
+      exit
 
     else
+      $user = user
     end
   end
 
@@ -59,16 +75,17 @@ class LoginView
       key(:country_origin).ask('Country of Origin: ')
 
     end
-    # $user = User.create(
-    #   first_name: user[:first_name],
-    #   second_name: user[:first_name],
-    #   age: user[:age],
-    #   address: "#{user[:street]}, #{user[:city]}, #{user[:state]} #{user[:zip]}",
-    #   email: user[:username],
-    #   password: user[:password],
-    #   country_origin: user[:country_origin]
-    # )
+    $user = User.create(
+      first_name: user[:first_name],
+      last_name: user[:last_name],
+      age: user[:age],
+      address: "#{user[:street]}, #{user[:city]}, #{user[:state]} #{user[:zip]}",
+      email: user[:username],
+      password: user[:password],
+      country_origin: user[:country_origin]
+    )
 
+    puts "You're all set! Here are your options:"
   end
 
 end
