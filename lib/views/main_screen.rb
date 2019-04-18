@@ -1,10 +1,12 @@
+require_relative 'modules/banner'
+require_relative 'modules/helpers'
 class MainScreen
   include Banner
   include Helper
 
   def initialize
     $COMPANY_NAME = "Starflights.com"
-    # $user = 
+    # $user =
     @prompt = TTY::Prompt.new
   end
 

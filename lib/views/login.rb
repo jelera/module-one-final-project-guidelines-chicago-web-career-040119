@@ -1,3 +1,6 @@
+require_relative 'modules/banner'
+require_relative 'modules/helpers'
+
 class Login
   include Banner
   attr_reader :user
@@ -10,8 +13,7 @@ class Login
   def main_screen
     system 'clear'
     welcome_children_banner
-    is_new_user? ? create_user : $user[:username] = @prompt.ask('What is your username?', default: ENV['USER'])
-    # Uncomment when proper authentication is implemented
+    is_new_user? ? create_user : @prompt.ask('What is your username?', default: ENV['USER'])
     # @password = @prompt.mask("Enter your password")
   end
 
@@ -21,7 +23,7 @@ class Login
 
   def create_user
 
-    $user = @prompt.collect do
+    user = @prompt.collect do
 
       key(:age).ask('What is your age (1-150)? ') do |q|
         q.in '18-150'
@@ -33,33 +35,33 @@ class Login
       q.messages[:valid?] = 'Invalid email address'
       end
 
-      # key(:password).ask('Create a password:') do
+      key(:password).ask('Create a password:')
 
       key(:first_name).ask('First Name')
 
       key(:last_name).ask('Last Name')
 
-      key(:address) do
-        key(:street).ask('Street?', required: true)
-        key(:city).ask('City?')
-        key(:zip).ask('Zip?', validate: /\A\d{3}\Z/)
+      # key(:address) do
+      #   key(:street).ask('Street?', required: true)
+      #   key(:city).ask('City?'),
+      #   # key(:state).ask('State?'),
+      #   key(:zip).ask('Zip?', validate: /\A\d{3}\Z/)
+      # end
 
-        # User.create(first_name: "#")
-        # t.string "first_name"
-        # t.string "last_name"
-        # t.integer "age"
-        # t.string "address"
-        # t.string "email"
-        # t.string "password"
-        # t.string "country_origin"
-      end
+      key(:country_origin).ask('Country of Origin: ')
 
-      puts "You're all set! Here are your options:"
     end
-    # @username = user[:username]
-    # @first_name = user[:first_name]
-    # @last_name = user[:last_name]
-    # @full_name = "#{@first_name} #{@last_name}"
+    # $user = User.create(
+    #   first_name: user[:first_name],
+    #   second_name: user[:first_name],
+    #   age: user[:age],
+    #   address: "#{user[:street]}, #{user[:city]}, #{user[:state]} #{user[:zip]}",
+    #   email: user[:username],
+    #   password: user[:password],
+    #   country_origin: user[:country_origin]
+    # )
+
+    puts "You're all set! Here are your options:"
   end
 
 end

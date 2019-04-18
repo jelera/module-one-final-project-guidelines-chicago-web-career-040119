@@ -1,16 +1,9 @@
-<<<<<<< HEAD:views/my_profile.rb
-require 'tty-prompt'
 require_relative 'modules/banner.rb'
 require_relative 'modules/helpers.rb'
-# require_relative 'lib/models/user.rb'
 
-class MyProfile < ActiveRecord::Base
-=======
 class MyProfile
->>>>>>> 1c8ffa118c2bf1ca5ca29bb4d906d8bf955656ef:lib/views/my_profile.rb
   include Banner
   include Helper
-  # include User
 
   def initialize
     @prompt = TTY::Prompt.new

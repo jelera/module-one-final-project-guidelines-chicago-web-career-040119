@@ -1,3 +1,5 @@
+require_relative 'modules/banner'
+require_relative 'modules/helpers'
 class Destination
   include Banner
   include Helper

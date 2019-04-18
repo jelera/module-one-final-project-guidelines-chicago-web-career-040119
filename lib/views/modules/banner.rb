@@ -21,12 +21,12 @@ module Banner
   end
 
   def welcome_user_banner
+                                              # Welcome, #{$user[:first_name] || $user[:username]}!
     puts <<-WELCOME
 
 
                           #==========================================================#
                           #                                                          #
-                                              Welcome, #{$user[:first_name] || $user[:username]}!
                           #                                                          #
                           #==========================================================#
 
