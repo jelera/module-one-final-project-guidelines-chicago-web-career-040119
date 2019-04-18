@@ -18,4 +18,8 @@ class Flight < ActiveRecord::Base
       true
     end
   end
+
+  def duration
+    arrival_time - departure_time
+  end
 end
