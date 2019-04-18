@@ -1,21 +1,13 @@
-# require 'tty-prompt'
-# require 'pry'
-require_relative 'modules/banner'
-require_relative 'modules/helpers'
-require_relative 'login'
-require_relative 'book_flight'
-require_relative 'destinations'
-require_relative 'my_profile'
-
 class MainScreen
   include Banner
   include Helper
 
   def initialize
     $COMPANY_NAME = "Starflights.com"
-    $user = {}
+    # $user = 
     @prompt = TTY::Prompt.new
   end
+
 
   def welcome_screen
     system 'clear'
