@@ -17,23 +17,30 @@ class BookFlightView
     @choice = @prompt.collect do
 
       key(:departure_city).ask("Enter your departure city", required: true, default: 'Chicago') do |q|
-      # q.validate
+
       end
 
       key(:arrival_city).ask("Enter your arrival city", required: true, default: 'New York City') do |q|
-      # q.validate
+
       end
     end
+    validate_cities
   end
 
   def validate_cities
-    @d_city = City.where("name=?", @choice[:departure_city]).first
-    @a_city = City.where("name=?", @choice[:arrival_city]).first
+    @d_city = City.where("name=?", @choice[:departure_city].downcase.capitalize).first
+    @a_city = City.where("name=?", @choice[:arrival_city].downcase.capitalize).first
+    if @d_city == nil || @a_city == nil
+      puts "Sorry, those aren't valid cities, please enter valid ones"
+      options
+    else
+      @flights = Flight.where('departure_city_id=? and arrival_city_id=?', @d_city.id, @a_city.id)
 
-    @flights = Flight.where('departure_city_id=? and arrival_city_id=?', @d_city.id, @a_city.id)
+    end
 
     if @flights.empty?
       puts "Sorry, there are no flights to those cities"
+      options
     else
       print_flights(@flights)
     end
