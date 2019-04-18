@@ -1,10 +1,12 @@
 require 'tty-prompt'
 require_relative 'modules/banner.rb'
 require_relative 'modules/helpers.rb'
+# require_relative 'lib/models/user.rb'
 
-class MyProfile
+class MyProfile < ActiveRecord::Base
   include Banner
   include Helper
+  # include User
 
   def initialize
     @prompt = TTY::Prompt.new
@@ -33,24 +35,23 @@ end
 def my_profile_tasks
   case my_profile_main_menu
       when 1
-        profile = User.find_by($user)
-        profile.first_name
-        profile.last_name
-        profile.age
-        profile.address
-        profile.email
-        profile.password
+        User.find_by($user)#used global variable, make sure it works
+        # profile.first_name
+        # profile.last_name
+        # profile.age
+        # profile.address
+        # profile.email
+        # profile.password
       when 2
-Change profile
+        #Change profile
       when 3
-        my_review = Review.where($user)
-        my_review.
+        Review.where($user)
       when 4
-        puts " Write review"
+        #Write new review
       when 5
-        puts " View flights"
+        UserFlights.where($user)
       when 6
-        puts " Change flight"
+        # puts " Change flight"
       when 7
         go_back_to_main_screen
       when 8
