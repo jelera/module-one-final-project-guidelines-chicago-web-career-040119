@@ -4,33 +4,30 @@ require_relative 'modules/helpers.rb'
 
 class MyProfile
   include Banner
+  include Helper
 
   def initialize
     @prompt = TTY::Prompt.new
     spacer_banner
     my_profile_banner
-    my_profile_main_menu
     my_profile_tasks
-
   end
 
-  def my_profile_main_menu
+def my_profile_main_menu
 
-  @choice = @prompt.select("What would you like to do?") do |menu|
-  menu.per_page 4
-  menu.page_help '(Use arrow keys to navigate up or down)'
+    @choice = @prompt.select("What would you like to do?") do |menu|
+    menu.per_page 4
+    menu.page_help '(Use arrow keys to navigate up or down)'
 
-    menu.choice 'View My Info', 1
-    menu.choice 'Change My Info', 2
-    menu.choice 'View My Reviews', 3
-    menu.choice 'Write New Review', 4
-    menu.choice 'View My Flights', 5
-    menu.choice 'Change My Flights', 6
-    menu.choice 'Go back to to main menu', 7
-    menu.choice 'Exit Program', 8
-
-
-  end
+      menu.choice 'View My Info', 1
+      menu.choice 'Change My Info', 2
+      menu.choice 'View My Reviews', 3
+      menu.choice 'Write New Review', 4
+      menu.choice 'View My Flights', 5
+      menu.choice 'Change My Flights', 6
+      menu.choice 'Go back to to main menu', 7
+      menu.choice 'Exit Program', 8
+    end
 end
 
 def my_profile_tasks
@@ -50,10 +47,13 @@ def my_profile_tasks
       when 7
         go_back_to_main_screen
       when 8
+        system 'clear'
         exit
       end
     end
-end
+
+
+end #end of class
 
 
 
