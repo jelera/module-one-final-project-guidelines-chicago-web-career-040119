@@ -1,4 +1,4 @@
 require_relative '../config/environment'
 
-
-puts "HELLO WORLD"
+$main_screen = MainScreen.new
+$main_screen.main

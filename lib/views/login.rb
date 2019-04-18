@@ -1,6 +1,3 @@
-require 'tty-prompt'
-require_relative 'modules/banner'
-
 class Login
   include Banner
   attr_reader :user
