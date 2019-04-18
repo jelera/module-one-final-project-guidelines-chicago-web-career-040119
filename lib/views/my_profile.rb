@@ -55,7 +55,16 @@ def my_profile_tasks
       when 4
         # @prompt.ask("Enter the destination you'd like to review:")
       when 5
-        
+        $user.flights.each_with_index do |flight, index|
+            # binding.pry
+            puts "Flight #{index + 1}"
+            puts "-----------------------------------------------"
+            puts "Flight number: " + flight[:flight_number]
+            puts "Airline: " + flight[:airline]
+            puts "Price: " + flight[:price].to_s
+            puts "-----------------------------------------------"
+            puts ""
+          end
       when 6
         # puts " Change flight"
       when 7
