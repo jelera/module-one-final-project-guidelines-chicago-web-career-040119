@@ -1,7 +1,11 @@
 class City < ActiveRecord::Base
   has_many :destinations
-  has_many :flights
-  belongs_to :departing_flight, :class_name => "Flight", :foreign_key => "departing_flight_id"
-  belongs_to :arriving_flight, :class_name => "Flight", :foreign_key => "arriving_flight_id"
+  has_many :departure_flights, :class_name => "Flight", :foreign_key => "departure_city_id"
+  has_many :arrival_flights, :class_name => "Flight", :foreign_key => "arrival_city_id"
+
+  def flights
+    self.departure_flights + self.arrival_flights
+  end
+
 
 end
