@@ -6,7 +6,7 @@ module Prompt
   def start_prompt
     puts "Welcome, Children!".upcase
     puts ""
-    puts "To #{@company_name}"
+    puts "To #{$COMPANY_NAME}"
     puts ""
     puts ""
     puts "Please enter your username:"

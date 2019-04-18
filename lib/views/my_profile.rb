@@ -1,7 +1,7 @@
 require_relative 'modules/banner.rb'
 require_relative 'modules/helpers.rb'
 
-class MyProfile
+class MyProfileView
   include Banner
   include Helper
 
@@ -32,7 +32,7 @@ end
 def my_profile_tasks
   case my_profile_main_menu
       when 1
-        User.find_by($user)#used global variable, make sure it works
+        # User.find_by($user)#used global variable, make sure it works
         # profile.first_name
         # profile.last_name
         # profile.age
@@ -42,11 +42,11 @@ def my_profile_tasks
       when 2
         #Change profile
       when 3
-        Review.where($user)
+        # Review.where($user)
       when 4
         #Write new review
       when 5
-        UserFlights.where($user)
+        # UserFlights.where($user)
       when 6
         # puts " Change flight"
       when 7

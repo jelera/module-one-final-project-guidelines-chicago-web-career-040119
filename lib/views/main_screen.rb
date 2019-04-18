@@ -1,6 +1,6 @@
 require_relative 'modules/banner'
 require_relative 'modules/helpers'
-class MainScreen
+class MainScreenView
   include Banner
   include Helper
 
@@ -31,11 +31,11 @@ class MainScreen
   def main_menu
     case menu_choice
     when 1
-      book_flight = BookFlight.new
+      book_flight = BookFlightView.new
     when 2
-      destinations = Destination.new
+      destinations = DestinationView.new
     when 3
-       my_profile = MyProfile.new
+       my_profile = MyProfileView.new
       # my_profile_screen
     when 4
       system 'clear'
@@ -44,13 +44,10 @@ class MainScreen
   end
 
   def main
-    Login.new
+    LoginView.new
     welcome_screen
     main_menu
   end
 
 
 end #end class
-
-$main_screen = MainScreen.new
-$main_screen.main

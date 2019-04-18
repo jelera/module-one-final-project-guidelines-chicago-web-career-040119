@@ -1,7 +1,7 @@
 require_relative 'modules/banner'
 require_relative 'modules/helpers'
 
-class Login
+class LoginView
   include Banner
   attr_reader :user
 
@@ -13,8 +13,16 @@ class Login
   def main_screen
     system 'clear'
     welcome_children_banner
-    is_new_user? ? create_user : @prompt.ask('What is your username?', default: ENV['USER'])
+    is_new_user? ? create_user : @username = @prompt.ask('What is your username?', default: ENV['USER'])
     # @password = @prompt.mask("Enter your password")
+  end
+
+  def validate_login
+    user = User.where('email=?', @username)
+    if user
+
+    else
+    end
   end
 
   def is_new_user?
@@ -41,12 +49,12 @@ class Login
 
       key(:last_name).ask('Last Name')
 
-      # key(:address) do
-      #   key(:street).ask('Street?', required: true)
-      #   key(:city).ask('City?'),
-      #   # key(:state).ask('State?'),
-      #   key(:zip).ask('Zip?', validate: /\A\d{3}\Z/)
-      # end
+      key(:address) do
+        key(:street).ask('Street?', required: true)
+        key(:city).ask('City?')
+        key(:state).ask('State?')
+        key(:zip).ask('Zip?', validate: /\A\d{3}\Z/)
+      end
 
       key(:country_origin).ask('Country of Origin: ')
 
@@ -61,7 +69,6 @@ class Login
     #   country_origin: user[:country_origin]
     # )
 
-    puts "You're all set! Here are your options:"
   end
 
 end
