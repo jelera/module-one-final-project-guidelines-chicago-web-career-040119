@@ -4,7 +4,4 @@ class Flight < ActiveRecord::Base
   belongs_to :departing_city, :class_name => "City", :foreign_key => "departing_city_id"
   belongs_to :arriving_city, :class_name => "City", :foreign_key => "arriving_city_id"
 
-  def initialize(*args)
-
-  end
 end
