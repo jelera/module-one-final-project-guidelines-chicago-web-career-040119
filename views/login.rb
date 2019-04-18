@@ -46,6 +46,15 @@ class Login
         key(:street).ask('Street?', required: true)
         key(:city).ask('City?')
         key(:zip).ask('Zip?', validate: /\A\d{3}\Z/)
+
+        # User.create(first_name: "#")
+        # t.string "first_name"
+        # t.string "last_name"
+        # t.integer "age"
+        # t.string "address"
+        # t.string "email"
+        # t.string "password"
+        # t.string "country_origin"
       end
 
       puts "You're all set! Here are your options:"

@@ -1,5 +1,5 @@
-require 'tty-prompt'
-require 'pry'
+# require 'tty-prompt'
+# require 'pry'
 require_relative 'modules/banner'
 require_relative 'modules/helpers'
 require_relative 'login'

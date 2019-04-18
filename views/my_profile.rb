@@ -33,11 +33,18 @@ end
 def my_profile_tasks
   case my_profile_main_menu
       when 1
-        puts " View info"
+        profile = User.find_by($user)
+        profile.first_name
+        profile.last_name
+        profile.age
+        profile.address
+        profile.email
+        profile.password
       when 2
-        puts " Change info"
+Change profile
       when 3
-        puts " View reviews"
+        my_review = Review.where($user)
+        my_review.
       when 4
         puts " Write review"
       when 5
