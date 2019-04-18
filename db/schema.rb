@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_222008) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
-    t.string "planet"
+    t.string "country"
   end
 
   create_table "destinations", force: :cascade do |t|
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_222008) do
     t.string "flight_number"
     t.string "airline"
     t.float "price"
+    t.boolean "is_departure_flight"
     t.integer "departure_city_id"
     t.datetime "departure_time"
     t.integer "arrival_city_id"
