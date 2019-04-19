@@ -9,7 +9,7 @@ class MyProfileView
     @prompt = TTY::Prompt.new
     spacer_banner
     my_profile_banner
-    my_profile_tasks
+    my_profile_main_menu
   end
 
 def my_profile_main_menu
@@ -27,19 +27,25 @@ def my_profile_main_menu
       menu.choice 'Go back to to main menu', 7
       menu.choice 'Exit Program', 8
     end
+
+    my_profile_tasks
 end
 
 def my_profile_tasks
-  case my_profile_main_menu
+  case @choice
       when 1
         # puts "#{$user}"
         profile = $user
+        puts "Here is your info"
+        puts "-----------------"
         puts profile.first_name
         puts profile.last_name
         puts profile.age
         puts profile.address
         puts profile.email
         puts profile.password
+        puts "-----------------"
+        puts ""
 
         my_profile_main_menu
       when 2
@@ -80,7 +86,7 @@ def my_profile_tasks
           password: user[:password],
           country_origin: user[:country_origin]
         )
-        puts my_profile_main_menu
+        my_profile_main_menu
 
       when 3
       if !$user.reviews.empty?
@@ -99,7 +105,31 @@ def my_profile_tasks
        end
 
       when 4
-        # @prompt.ask("Enter the destination you'd like to review:")
+
+        while true
+          destination_input = @prompt.ask("Enter the destination you'd like to review: ").downcase.capitalize
+          puts ""
+          destination = Destination.where('name=?', destination_input).first
+
+          if destination
+            puts ""
+            review_body = @prompt.ask("Enter your review: ")
+            puts ""
+            rating = @prompt.ask("Enter a rating (1-5): ")
+            puts ""
+            Review.create(body: review_body, rating: rating, destination_id: destination.id, user_id: $user.id)
+            puts "Your entry has been recorded"
+            puts ""
+            break
+          else
+            puts ""
+            puts "Sorry but that destination is not in our database"
+            puts ""
+            puts ""
+          end
+        end
+        my_profile_main_menu
+
       when 5
         $user.flights.each_with_index do |flight, index|
             # binding.pry
