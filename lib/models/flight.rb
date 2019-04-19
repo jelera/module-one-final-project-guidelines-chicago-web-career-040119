@@ -20,6 +20,9 @@ class Flight < ActiveRecord::Base
   end
 
   def duration
-    arrival_time - departure_time
+    duration_time = Time.at(arrival_time - departure_time)
+    hours = duration_time.strftime('%H')
+    minutes = duration_time.strftime('%I')
+    "#{hours} hours and #{minutes} minutes"
   end
 end
