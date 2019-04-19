@@ -107,7 +107,7 @@ def my_profile_tasks
       when 4
 
         while true
-          destination_input = @prompt.ask("Enter the destination you'd like to review: ").downcase.capitalize
+          destination_input = @prompt.ask("Enter the destination you'd like to review: ").downcase.split.map(&:capitalize).join(' ')
           puts ""
           destination = Destination.where('name=?', destination_input).first
 
@@ -115,7 +115,10 @@ def my_profile_tasks
             puts ""
             review_body = @prompt.ask("Enter your review: ")
             puts ""
-            rating = @prompt.ask("Enter a rating (1-5): ")
+            rating = @prompt.ask("Enter a rating (1-5): ") do |q|
+              q.in '1-5'
+              q.messages[:range?] = 'Please enter a rating between 1 - 5.'
+            end
             puts ""
             Review.create(body: review_body, rating: rating, destination_id: destination.id, user_id: $user.id)
             puts "Your entry has been recorded"
