@@ -55,11 +55,13 @@ class BookFlightView
     puts ""
     flights.each_with_index do |flight, index|
       # binding.pry
-      puts "SELECTION #{index + 1}"
       puts "-----------------------------------------------"
-      puts "Flight number: " + flight[:flight_number]
-      puts "Airline: " + flight[:airline]
-      puts "Price: " + flight[:price].to_s
+      puts "| SELECTION #{index + 1}"
+      puts "-----------------------------------------------"
+      puts "| Flight number: " + flight[:flight_number]
+      puts "| Airline: " + flight[:airline]
+      puts "| Price: $" + flight[:price].to_s
+      puts "| Duration: " + flight.duration
       puts "-----------------------------------------------"
       puts ""
     end
@@ -77,7 +79,6 @@ Here are the details for your upcoming flight
 
 Departure city: #{@d_city.name}
 Arrival city: #{@a_city.name}
-
 
     MSG
   end
