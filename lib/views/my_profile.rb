@@ -23,7 +23,7 @@ def my_profile_main_menu
       menu.choice 'View My Reviews', 3
       menu.choice 'Write New Review', 4
       menu.choice 'View My Flights', 5
-      menu.choice 'Change My Flights', 6
+      menu.choice 'Delete my Profile', 6
       menu.choice 'Go back to to main menu', 7
       menu.choice 'Exit Program', 8
     end
@@ -141,8 +141,13 @@ def my_profile_tasks
             puts "-----------------------------------------------"
             puts ""
           end
+          my_profile_main_menu
+
       when 6
-        # puts " Change flight"
+        $user.delete
+        system 'clear'
+        puts "Your account has been terminated. You will be sorry, child."
+        exit
       when 7
         go_back_to_main_screen
       when 8
