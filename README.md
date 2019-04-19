@@ -31,18 +31,18 @@ Review your profile, change your information, and browse your reviews.
 
 
 ## Auhtors
-Jose Elera [github profile](https://github.com/jelera)
-Sarah Elzinga [github profile](https://github.com/sevans924)
+* Jose Elera [github profile](https://github.com/jelera)
+* Sarah Elzinga [github profile](https://github.com/sevans924)
 
 
 ## Credits
 **Gems**
-[TTY](https://github.com/piotrmurach/tty-prompt#ttyprompt-)
-[sinatra-activerecord](https://rubygems.org/gems/sinatra-activerecord/versions/2.0.9)
-[sqlite3] (https://rubygems.org/gems/sqlite3/versions/1.3.11)
-[pry](https://rubygems.org/gems/pry/versions/0.10.3)
-[require_all](https://rubygems.org/gems/require_all/versions/1.3.3)
-[faker](https://rubygems.org/gems/faker/versions/1.6.6)
-[chronic](https://rubygems.org/gems/chronic/versions/0.10.2)
+* [TTY](https://github.com/piotrmurach/tty-prompt#ttyprompt-)
+* [sinatra-activerecord](https://rubygems.org/gems/sinatra-activerecord/versions/2.0.9)
+* [sqlite3](https://rubygems.org/gems/sqlite3/versions/1.3.11)
+* [pry](https://rubygems.org/gems/pry/versions/0.10.3)
+* [require_all](https://rubygems.org/gems/require_all/versions/1.3.3)
+* [faker](https://rubygems.org/gems/faker/versions/1.6.6)
+* [chronic](https://rubygems.org/gems/chronic/versions/0.10.2)
 
 **Thank you all for your hard work!**
