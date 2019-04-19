@@ -28,8 +28,10 @@ class BookFlightView
   end
 
   def validate_cities
-    @d_city = City.where("name=?", @choice[:departure_city].downcase.capitalize).first
-    @a_city = City.where("name=?", @choice[:arrival_city].downcase.capitalize).first
+
+
+    @d_city = City.where("name=?", @choice[:departure_city].downcase.split.map(&:capitalize).join(' ')).first
+    @a_city = City.where("name=?", @choice[:arrival_city].downcase.split.map(&:capitalize).join(' ')).first
     if @d_city == nil || @a_city == nil
       puts "Sorry, those aren't valid cities, please enter valid ones"
       options

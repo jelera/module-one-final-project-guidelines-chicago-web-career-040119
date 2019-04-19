@@ -1,5 +1,5 @@
 user_number = 50
-flight_number = 100
+flight_number = 300
 destination_number = 80
 review_number = 50
 
