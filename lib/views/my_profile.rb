@@ -71,7 +71,7 @@ def my_profile_tasks
           key(:country_origin).ask('Country of Origin: ')
 
         end
-        $user = User.update(
+        $user.update(
           first_name: user[:first_name],
           last_name: user[:last_name],
           age: user[:age],
