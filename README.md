@@ -1,8 +1,8 @@
-# Starflights.com Booking App
+# Travel Flight Booking CLI App
 
 ## Overview
 
-Welcome to **Starflights.com**! You can create a profile, research destinations and book a flight for your next trip!
+You can create a profile, research destinations and book a flight for your next trip!
 
 ## Instructions
 
@@ -12,7 +12,7 @@ Make sure to run `bundle install`.
 
 ### Logging In
 
-On the welcome screen, follow prompts to log into your existing **Starflights.com** account or to create a new profile.
+On the welcome screen, follow prompts to log into your existing account or to create a new profile.
 
 ### Main Menu
 
@@ -31,9 +31,9 @@ Research destinations for your next trip. All of our reviews were written by the
 Review your profile, change your information, and browse your reviews.
 
 
-## Authors
-* Jose Elera [github profile](https://github.com/jelera)
-* Sarah Elzinga [github profile](https://github.com/sevans924)
+## Original Authors
+* [Jose Elera](https://github.com/jelera)
+* [Sarah Elzinga](https://github.com/sevans924)
 
 
 ## Credits
