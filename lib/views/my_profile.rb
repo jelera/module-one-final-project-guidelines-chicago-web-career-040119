@@ -40,6 +40,8 @@ def my_profile_tasks
         puts profile.address
         puts profile.email
         puts profile.password
+
+        my_profile_main_menu
       when 2
         user = @prompt.collect do
 
@@ -80,7 +82,7 @@ def my_profile_tasks
         )
         puts my_profile_main_menu
       when 3
-
+      if !$user.reviews.empty?
        $user.reviews.each do |r|
          puts "========================="
            puts "Rating: #{r.rating}"
@@ -88,7 +90,13 @@ def my_profile_tasks
            puts r.body
            puts "========================"
            puts ""
+           my_profile_main_menu
          end
+       else
+         puts "You haven't written any reviews yet."
+         my_profile_main_menu
+       end
+
       when 4
         # @prompt.ask("Enter the destination you'd like to review:")
       when 5
