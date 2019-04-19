@@ -78,7 +78,7 @@ class LoginView
       first_name: user[:first_name],
       last_name: user[:last_name],
       age: user[:age],
-      address: "#{user[:street]}, #{user[:city]}, #{user[:state]} #{user[:zip]}",
+      address: "#{user[:address][:street].downcase.capitalize}, #{user[:address][:city].downcase.capitalize}, #{user[:address][:state].upcase} #{user[:address][:zip]}",
       email: user[:username],
       password: user[:password],
       country_origin: user[:country_origin]
