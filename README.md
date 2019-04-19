@@ -1,4 +1,4 @@
-# Starflight.com Booking App
+# Starflights.com Booking App
 
 ## Overview
 
